@@ -10,8 +10,7 @@ function UsernameForm({ onSubmitUsername }) {
   // events (which refreshes the page).
   function handleSubmit(event) {
     event.preventDefault()
-    const user = event.target.elements[0].value
-    console.log(user)
+    const user = event.target.usernameInput.value
     onSubmitUsername(user)
   }
 
@@ -27,8 +26,8 @@ function UsernameForm({ onSubmitUsername }) {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="name">Username:</label>
-        <input id="name" type="text" />
+        <label htmlFor="usernameInput">Username:</label>
+        <input id="usernameInput" type="text" />
       </div>
       <button type="submit">Submit</button>
     </form>
