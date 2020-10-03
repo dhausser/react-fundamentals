@@ -3,12 +3,18 @@
 
 import React from 'react'
 
-function UsernameForm({onSubmitUsername}) {
+function UsernameForm({ onSubmitUsername }) {
   // 🐨 add a submit event handler here (`handleSubmit`).
   // 💰 Make sure to accept the `event` as an argument and call
   // `event.preventDefault()` to prevent the default behavior of form submit
   // events (which refreshes the page).
-  //
+  function handleSubmit(event) {
+    event.preventDefault()
+    const user = event.target.elements[0].value
+    console.log(user)
+    onSubmitUsername(user)
+  }
+
   // 🐨 get the value from the username input (using whichever method
   // you prefer from the options mentioned in the instructions)
   // 💰 For example: event.target.elements[0]
@@ -19,10 +25,10 @@ function UsernameForm({onSubmitUsername}) {
   // 🐨 make sure to associate the label to the input by specifying an `id` on
   // the input and a matching value as an `htmlFor` prop on the label.
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div>
-        <label>Username:</label>
-        <input type="text" />
+        <label htmlFor="name">Username:</label>
+        <input id="name" type="text" />
       </div>
       <button type="submit">Submit</button>
     </form>
